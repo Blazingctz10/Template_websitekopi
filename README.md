@@ -20,7 +20,7 @@ Jika Anda ingin mencoba project ini di komputer lokal:
 
 1.  **Clone Repository**
     ```bash
-    git clone [https://github.com/Blazingctz10/Template_websitekopi.git](https://github.com/Blazingctz10/Template_websitekopi.git)
+    git clone https://github.com/Blazingctz10/Template_websitekopi.git
     cd Template_websitekopi
     ```
 
