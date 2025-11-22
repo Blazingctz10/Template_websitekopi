@@ -50,13 +50,3 @@ Jika Anda ingin mencoba project ini di komputer lokal:
 ---
 
 Copyright © 2025 Blazingctz10 Project.
-
-
-### Cara Pasang di GitHub:
-1.  Buka repo kamu: `https://github.com/Blazingctz10/Template_websitekopi`.
-2.  Kalau belum ada file `README.md`, klik **Add file** > **Create new file**, beri nama `README.md`.
-3.  Kalau sudah ada, klik file tersebut lalu klik ikon **Pensil** (Edit).
-4.  **Paste** kode di atas.
-5.  Klik **Commit changes**.
-
-Sekarang repository kamu sudah lengkap dengan tutorial dan instruksi install yang valid! Sukses buat ujiannya ya!
