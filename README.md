@@ -20,6 +20,7 @@ Website e-commerce modern untuk kedai kopi "Tiban Kaffe". Proyek ini dibangun me
 * **Integrasi Lokasi:** Peta lokasi menggunakan Google Maps Embed API.
 
 ---
+```bash
 
 ## 🚀 Panduan Instalasi (Cara Menjalankan)
 
