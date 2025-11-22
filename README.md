@@ -24,16 +24,15 @@ Website e-commerce modern untuk kedai kopi "Tiban Kaffe". Proyek ini dibangun me
 ## 🚀 Panduan Instalasi (Cara Menjalankan)
 
 Ikuti langkah-langkah berikut untuk menjalankan website ini di komputer lokal Anda:
-```bash
-1. Clone Repository
+
+## 1. Clone Repository
 Unduh source code dari GitHub:
 
 git clone [https://github.com/Blazingctz10/Template_websitekopi.git](https://github.com/Blazingctz10/Template_websitekopi.git)
 cd Template_websitekopi
-2. Buat Virtual Environment (Opsional)
-Agar library project tidak tercampur dengan sistem komputer (Disarankan):
 
-Bash
+## 2. Buat Virtual Environment (Opsional)
+Agar library project tidak tercampur dengan sistem komputer (Disarankan):
 
 # Windows
 python -m venv env
@@ -45,26 +44,22 @@ source env/bin/activate
 3. Install Library (Requirements)
 Install Django, Pillow, dan library pendukung lainnya sekaligus:
 
-Bash
-
 pip install -r requirements.txt
-4. Setup Database
-Buat tabel database (SQLite) berdasarkan model yang sudah dibuat:
 
-Bash
+4. Setup Database
+
+Buat tabel database (SQLite) berdasarkan model yang sudah dibuat:
 
 python manage.py makemigrations
 python manage.py migrate
+
 5. Buat Akun Admin
 Buat akun superuser untuk login ke halaman admin dan mengelola data kopi:
-
-Bash
 
 python manage.py createsuperuser
 (Ikuti instruksi memasukkan username dan password di terminal)
 
 6. Jalankan Server
-Bash
-
 python manage.py runserver
+
 Buka browser dan akses: http://127.0.0.1:8000/
