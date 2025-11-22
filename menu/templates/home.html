@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+
+{% block body_class %}home-page-body{% endblock %}
+{% block navbar_class %}navbar-transparent{% endblock %}
+
+{% block extra_css %}
+<style>
+    /* CSS Khusus Home Page Mobile */
+    
+    /* 1. Hero Section Tinggi & Background */
+    .hero-section {
+        background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1510972527921-ce03766a1cf1?q=80&w=1920&auto=format&fit=crop');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed; 
+        height: 100vh; /* Full layar desktop */
+        min-height: 600px; /* Minimal tinggi buat HP */
+        display: flex; 
+        align-items: center; 
+        color: white;
+        margin-top: -85px; 
+        padding-top: 85px;
+    }
+
+    /* 2. Responsif Text */
+    .hero-title {
+        font-size: 5rem; /* Besar di Desktop */
+    }
+    
+    /* Saat dibuka di HP (Layar < 768px) */
+    @media (max-width: 768px) {
+        .hero-section {
+            background-attachment: scroll; /* Parallax dimatikan di HP agar performa ringan */
+            background-position: center;
+            height: auto;
+            min-height: 100vh;
+            padding-bottom: 50px;
+        }
+        .hero-title {
+            font-size: 3rem; /* Kecilkan font di HP */
+        }
+        .lead {
+            font-size: 1rem;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<section class="hero-section">
+    <div class="container text-center">
+        <h5 class="text-uppercase mb-3 fw-light text-warning small ls-2">Welcome to Batam</h5>
+        <h1 class="hero-title fw-bold mb-3" style="font-family: 'Playfair Display', serif;">Tiban Kaffe</h1>
+        <p class="lead mb-5 px-md-5 mx-md-5">
+            Nikmati kehangatan kopi nusantara di jantung kota Batam. <br class="d-none d-md-block"> 
+            Racikan sempurna untuk menemani harimu.
+        </p>
+        <a href="#menu-area" class="btn btn-coffee btn-lg rounded-pill px-5 py-3 shadow-lg">
+            Pesan Sekarang <i class="bi bi-arrow-down-short"></i>
+        </a>
+    </div>
+</section>
+
+<div class="container py-5 mt-3" id="menu-area">
+    <div class="text-center mb-5">
+        <h6 class="text-muted text-uppercase">Signature Menu</h6>
+        <h2 class="display-5 fw-bold" style="color: #2c1e16;">Pilihan Terbaik</h2>
+        <div class="mx-auto mt-3" style="width: 60px; height: 3px; background-color: #d4a373;"></div>
+    </div>
+
+    <div class="row g-4">
+        {% for kopi in kopi_list %}
+        <div class="col-6 col-md-4"> <div class="card h-100 border-0 shadow-sm overflow-hidden" style="border-radius: 15px;">
+                <div class="position-relative">
+                    <div class="ratio ratio-1x1"> {% if kopi.gambar %}
+                        <img src="{{ kopi.gambar.url }}" class="w-100 h-100" style="object-fit: cover;">
+                        {% else %}
+                        <div class="w-100 h-100 bg-secondary d-flex align-items-center justify-content-center text-white">No Image</div>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="position-absolute bottom-0 start-0 bg-white px-3 py-1 rounded-top-right m-0 shadow-sm">
+                        <span class="fw-bold text-dark small">Rp {{ kopi.harga|floatformat:0 }}</span>
+                    </div>
+                </div>
+
+                <div class="card-body text-center p-3">
+                    <h5 class="card-title fw-bold fs-6 mb-2 text-truncate">{{ kopi.nama }}</h5>
+                    <p class="text-muted small mb-3 d-none d-md-block">{{ kopi.deskripsi|truncatewords:10 }}</p>
+                    
+                    <button onclick="addToCart({{ kopi.id }}, '{{ kopi.nama|escapejs }}')" class="btn btn-outline-dark w-100 rounded-pill btn-sm py-2">
+                        <i class="bi bi-plus-lg"></i> <span class="d-none d-md-inline">Tambah</span>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+        {% empty %}
+        <div class="col-12 text-center py-5">
+            <h3 class="text-muted">Menu belum tersedia.</h3>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

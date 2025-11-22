@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="internal-page-spacer"></div>
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5">
+            <div class="card card-custom border-0 shadow-lg text-center p-5">
+                
+                <div class="mb-4 d-flex justify-content-center">
+                    <div class="success-icon-wrapper">
+                        <i class="bi bi-check-lg text-white" style="font-size: 3rem;"></i>
+                    </div>
+                </div>
+
+                <h2 class="fw-bold mb-2" style="font-family: 'Playfair Display', serif; color: #2c1e16;">
+                    Hore! Pesanan Masuk
+                </h2>
+
+                <p class="text-muted mb-4">
+                    Terima kasih, <strong class="text-dark">{{ nama|default:"Kak" }}</strong>! <br>
+                    Barista kami sudah menerima pesananmu.
+                </p>
+
+                <div class="bg-light p-4 rounded-4 mb-4 text-start border border-light">
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="text-muted small text-uppercase fw-bold">Kode Pesanan</span>
+                        <span class="fw-bold text-primary font-monospace">#TB-{{ request.session.session_key|slice:":4"|upper|default:"NEW" }}</span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-0">
+                        <span class="text-muted small text-uppercase fw-bold">Estimasi Waktu</span>
+                        <span class="fw-bold text-dark"><i class="bi bi-clock"></i> 10 - 15 Menit</span>
+                    </div>
+                </div>
+
+                <p class="small text-muted mb-4 fst-italic">
+                    "Kopi yang baik akan menemukan penikmatnya."
+                </p>
+
+                <div class="d-grid gap-2">
+                    <a href="{% url 'home' %}" class="btn btn-coffee btn-lg rounded-pill shadow-sm">
+                        <i class="bi bi-cup-hot-fill me-2"></i> Pesan Lagi
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .success-icon-wrapper {
+        width: 100px; 
+        height: 100px; 
+        background: linear-gradient(45deg, #198754, #20c997); 
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        border-radius: 50%; 
+        box-shadow: 0 10px 20px rgba(25, 135, 84, 0.3);
+        animation: popIn 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    }
+
+    @keyframes popIn {
+        0% { transform: scale(0) rotate(-45deg); opacity: 0; }
+        80% { transform: scale(1.1) rotate(10deg); opacity: 1; }
+        100% { transform: scale(1) rotate(0deg); }
+    }
+</style>
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="internal-page-spacer"></div>
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-5 col-md-8">
+            <div class="card card-custom border-0 shadow-lg overflow-hidden">
+                <div class="card-header text-center text-white py-4" style="background: #2c1e16;">
+                    <h4 class="mb-0 fw-bold">Pembayaran QRIS</h4>
+                    <small class="opacity-75">Scan untuk menyelesaikan pesanan</small>
+                </div>
+
+                <div class="card-body p-4 p-md-5 bg-white">
+                    <div class="text-center mb-4">
+                        <p class="mb-1 text-muted fw-bold text-uppercase small ls-1">Total Tagihan</p>
+                        <h2 class="display-6 fw-bold text-dark mb-4">Rp {{ total_harga }}</h2>
+                        
+                        <div class="d-inline-block p-3 border rounded-4 bg-white shadow-sm mb-3 position-relative">
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=TibanKaffe-Tagihan-{{ total_harga }}" alt="QRIS Code" class="img-fluid" style="border-radius: 10px;">
+                            
+                            <div class="position-absolute top-50 start-50 translate-middle bg-white p-1 rounded">
+                                <i class="bi bi-qr-code-scan text-danger"></i>
+                            </div>
+                        </div>
+                        
+                        <p class="fw-bold text-dark mb-1">Tiban Kaffe Merchant</p>
+                        <p class="small text-muted">NMID: ID102003004005</p>
+                    </div>
+
+                    <div class="alert alert-warning d-flex align-items-center small" role="alert">
+                        <i class="bi bi-info-circle-fill me-2"></i>
+                        <div>Bukti bayar tidak perlu diupload, cukup konfirmasi di bawah.</div>
+                    </div>
+
+                    <form method="POST" class="mt-4">
+                        {% csrf_token %}
+                        <div class="form-floating mb-3">
+                            <input type="text" name="nama" class="form-control" id="floatingNama" placeholder="Nama" required>
+                            <label for="floatingNama">Nama Pemesan / Meja</label>
+                        </div>
+                        
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-coffee btn-lg rounded-pill shadow py-3">
+                                <i class="bi bi-check-circle-fill me-2"></i> Konfirmasi Pembayaran
+                            </button>
+                            <a href="{% url 'cart_detail' %}" class="btn btn-link text-muted text-decoration-none">Batalkan</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
