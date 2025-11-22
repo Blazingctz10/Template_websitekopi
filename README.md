@@ -24,10 +24,10 @@ Website e-commerce modern untuk kedai kopi "Tiban Kaffe". Proyek ini dibangun me
 ## 🚀 Panduan Instalasi (Cara Menjalankan)
 
 Ikuti langkah-langkah berikut untuk menjalankan website ini di komputer lokal Anda:
-
-### 1. Clone Repository
-Unduh source code dari GitHub:
 ```bash
+1. Clone Repository
+Unduh source code dari GitHub:
+
 git clone [https://github.com/Blazingctz10/Template_websitekopi.git](https://github.com/Blazingctz10/Template_websitekopi.git)
 cd Template_websitekopi
 2. Buat Virtual Environment (Opsional)
